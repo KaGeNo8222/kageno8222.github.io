@@ -1,0 +1,14 @@
+# Cloudflare Pages headers. The service worker and HTML must always be revalidated
+# so new versions are detected. Hashed files are cached by the service worker.
+/
+  Cache-Control: no-cache
+
+/index.html
+  Cache-Control: no-cache
+
+/sw.js
+  Cache-Control: no-cache
+
+/manifest.webmanifest
+  Cache-Control: no-cache
+  Content-Type: application/manifest+json

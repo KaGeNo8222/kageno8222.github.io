@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="th">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>TICKO</title>
+    <meta name="description" content="เช็กลิสต์สิ่งที่ต้องทำในแต่ละวัน แยกเรื่องงานและเรื่องส่วนตัว ใช้งานได้แม้ออฟไลน์" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="TICKO" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="theme-color" content="#F2F8F4" />
+    <script>
+      // Apply the saved theme before the first paint to avoid a light/dark flash.
+      // Keep the storage key in sync with src/services/preferences.ts.
+      (function () {
+        try {
+          var raw = localStorage.getItem("dayflow.preferences");
+          var theme = raw ? JSON.parse(raw).theme : "system";
+          var dark =
+            theme === "dark" ||
+            (theme !== "light" && window.matchMedia("(prefers-color-scheme: dark)").matches);
+          var root = document.documentElement;
+          root.classList.toggle("dark", dark);
+          root.style.colorScheme = dark ? "dark" : "light";
+          document
+            .querySelector('meta[name="theme-color"]')
+            .setAttribute("content", dark ? "#0E1813" : "#F2F8F4");
+        } catch (error) {
+          /* Storage unavailable: keep the defaults. */
+        }
+      })();
+    </script>
+    <script type="module" crossorigin src="/index-Dr3Kf6UN.js"></script>
+    <link rel="stylesheet" crossorigin href="/index-B1ri9C5U.css">
+  <link rel="manifest" href="/manifest.webmanifest"></head>
+  <body>
+    <div id="root"></div>
+    <noscript>TICKO ต้องเปิดใช้งาน JavaScript</noscript>
+  </body>
+</html>
